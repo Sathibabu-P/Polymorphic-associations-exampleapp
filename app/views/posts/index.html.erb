@@ -2,6 +2,12 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<p>
+  Download:
+  <%= link_to "CSV", posts_path(format: "csv") %> |
+  <%= link_to "Excel", posts_path(format: "xls") %> |
+  <%= link_to "Pdf", posts_path(format: "pdf") %>
+</p>
 <table class="table">
   <thead>
     <tr>

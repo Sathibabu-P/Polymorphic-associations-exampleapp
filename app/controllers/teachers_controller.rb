@@ -5,7 +5,17 @@ class TeachersController < ApplicationController
   # GET /teachers
   # GET /teachers.json
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.all.where(user_id: "#{current_user.id}")
+      respond_to do |format|
+      format.html
+      format.csv { render text: @teachers.to_csv }
+      format.xls
+      format.pdf do
+        pdf = TeachersPdf.new(@teachers)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+      end
+      #format.xls { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /teachers/1

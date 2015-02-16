@@ -4,6 +4,16 @@ class PostsController < ApplicationController
 	before_action :set_author, only: [:create,:update]
   def index
   	@posts = Post.all
+     respond_to do |format|
+      format.html
+      format.csv { render text: @posts.to_csv }
+      format.xls
+      format.pdf do
+        pdf = PostsPdf.new(@posts)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+      end
+      #format.xls { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
 
   def new

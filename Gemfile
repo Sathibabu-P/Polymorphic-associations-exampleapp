@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise-i18n-views'
 gem 'devise-bootstrap-views'
 gem "paperclip"
+gem 'prawn', "1.3.0"
+gem 'prawn-table', "0.2.1"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
