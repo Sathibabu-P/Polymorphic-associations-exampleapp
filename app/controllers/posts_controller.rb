@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  before_filter :authenticate_user!
 	before_action :get_author, only: [:new,:edit,:destroy,:show]
 	before_action :set_author, only: [:create,:update]
   def index
