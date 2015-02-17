@@ -4,6 +4,15 @@ class PostsController < ApplicationController
 	before_action :set_author, only: [:create,:update]
   def index
   	@posts = Post.all
+     respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => 'file_name',
+        :template => 'posts/posts.pdf.erb',
+        :layout => 'pdf.html.erb',
+        :show_as_html => params[:debug].present?
+      end
+    end
   end
 
   def new
