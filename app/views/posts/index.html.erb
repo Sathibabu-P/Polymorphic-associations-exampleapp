@@ -4,9 +4,9 @@
 </div>
 <p>
   Download:
-  <%= link_to "CSV", posts_path(format: "csv") %> |
-  <%= link_to "Excel", posts_path(format: "xls") %> |
-  <%= link_to "Pdf", posts_path(format: "pdf") %>
+  <%= link_to "CSV", posts_path(format: "csv") , :class => 'btn btn-primary btn-xs'%> 
+  <%= link_to "Excel", posts_path(format: "xls"), :class => 'btn btn-success btn-xs' %> 
+  <%= link_to "Pdf", posts_path(format: "pdf"), :class => 'btn btn-danger btn-xs' %>
 </p>
 <table class="table">
   <thead>
